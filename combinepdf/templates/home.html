@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>PDF Combiner</title>
+	<!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container py-5">
+		<h1 class="mb-5">PDF Combiner</h1>
+		<form method="post" action="/tasks/merge-pdfs" enctype="multipart/form-data">
+			<div class="mb-3 input-half-width">
+				<label for="filename" class="form-label">Enter new file name:</label>
+				<input type="text" class="form-control" name="filename" id="filename" required>
+			</div>
+			<div class="mb-3 input-half-width">
+				<label for="top-pdf" class="form-label">Upload TOP PDF:</label>
+				<input type="file" class="form-control" name="top-pdf" id="top-pdf" accept="application/pdf" required>
+			</div>
+			<div class="mb-3 input-half-width">
+				<label for="second-pdf" class="form-label">Upload 2nd PDF (optional):</label>
+				<input type="file" class="form-control half-width" name="second-pdf" id="second-pdf" accept="application/pdf">
+			</div>
+			<div class="mb-3 input-half-width">
+				<label for="third-pdf" class="form-label">Upload 3rd PDF (optional):</label>
+				<input type="file" class="form-control" name="third-pdf" id="third-pdf" accept="application/pdf">
+			</div>
+			<div class="mb-3 input-half-width">
+				<label for="bulk-pdf" class="form-label">Upload remaining PDFs:</label>
+				<input type="file" class="form-control" accept=".pdf" name="bulk-pdf[]" id="bulk-pdf" multiple>
+                <div id="bulk-pdf-names"></div>
+			</div>
+			<button type="submit" class="btn btn-primary mt-3">Combine PDFs</button>
+		</form>
+	</div>
+	<!-- Links to Bootstrap JavaScript files -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+setuptools~=67.6.0
+celery~=5.2.7
+pypdf2~=3.0.1
+Flask~=2.2.3
+PyPDF4~=1.27.0
